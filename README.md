@@ -21,12 +21,13 @@ No account required. No data leaves your browser.
 
 ## How detection works
 
-The heuristic engine scores text based on a few things:
+The heuristic engine scores text across five signals:
 
 - **Phrase patterns** — LLMs reuse specific phrases constantly ("delve into", "it's worth noting", "in today's world", etc.). The engine checks for 30+ of these.
-- **Sentence uniformity** — human writing varies in rhythm. AI output tends to have suspiciously consistent sentence lengths.
-- **Transition word density** — AI loves starting sentences with "Furthermore," "Moreover," "Additionally,". High density is a red flag.
-- **Contraction frequency** — formal AI text often avoids contractions even in casual contexts.
+- **Burstiness** — human writing varies in rhythm. AI output has suspiciously uniform sentence lengths. The engine measures standard deviation of sentence length and flags low-variance text.
+- **Vocabulary richness** — measures Type-Token Ratio (unique words / total words) and the proportion of bland, generic words. AI tends to play it safe with word choices.
+- **Bigram predictability** — approximates perplexity by counting how often predictable word pairs ("is essential", "plays a crucial", "as well as") appear relative to text length. This is the same signal real AI detectors use.
+- **Structural patterns** — transition word density, contraction frequency, em-dash overuse.
 
 An optional API key enables a second-pass analysis on content that scores in the uncertain range.
 
