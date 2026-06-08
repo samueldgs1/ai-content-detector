@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>AIRadar</title>
+  <link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <span class="logo-icon">📡</span>
+        <span class="logo-text">AIRadar</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="master-toggle" checked/>
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card purple">
+        <span class="stat-num" id="stat-flagged">0</span>
+        <span class="stat-label">AI Text Flagged</span>
+      </div>
+      <div class="stat-card red">
+        <span class="stat-num" id="stat-images">0</span>
+        <span class="stat-label">AI Images Found</span>
+      </div>
+      <div class="stat-card blue">
+        <span class="stat-num" id="stat-scanned">0</span>
+        <span class="stat-label">Blocks Scanned</span>
+      </div>
+      <div class="stat-card green">
+        <span class="stat-num" id="stat-accuracy">—</span>
+        <span class="stat-label">Detection Rate</span>
+      </div>
+    </div>
+
+    <div class="section-title">Mode</div>
+    <div class="mode-selector">
+      <button class="mode-btn active" id="mode-label" data-mode="label">
+        <span>🏷</span>
+        <span>Label It</span>
+        <span class="mode-desc">Show badge on AI content</span>
+      </button>
+      <button class="mode-btn" id="mode-hide" data-mode="hide">
+        <span>🚫</span>
+        <span>Hide It</span>
+        <span class="mode-desc">Remove AI content entirely</span>
+      </button>
+    </div>
+
+    <div class="section-title">Sensitivity</div>
+    <div class="slider-row">
+      <span class="slider-label">Low</span>
+      <input type="range" id="threshold" min="10" max="80" value="40" step="5"/>
+      <span class="slider-label">High</span>
+    </div>
+    <div class="threshold-hint" id="threshold-hint">Flags content with 40%+ AI score</div>
+
+    <div class="section-title">Options</div>
+    <div class="option-row">
+      <span>Scan Images</span>
+      <label class="toggle sm">
+        <input type="checkbox" id="toggle-images" checked/>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="footer">
+      <button class="btn-text" id="rescan-btn">🔄 Rescan Page</button>
+      <button class="btn-text" id="options-btn">⚙️ Settings</button>
+      <button class="btn-text" id="reset-btn">Reset</button>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
