@@ -1,4 +1,4 @@
-// AIRadar Background Service Worker
+// Sift - background service worker
 
 const defaultStats = { totalFlagged: 0, totalScanned: 0, totalAiImages: 0 };
 
@@ -13,7 +13,7 @@ chrome.runtime.onInstalled.addListener(async () => {
     });
   }
 
-  chrome.action.setBadgeBackgroundColor({ color: '#7c3aed' });
+  chrome.action.setBadgeBackgroundColor({ color: '#1d4ed8' });
 });
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {

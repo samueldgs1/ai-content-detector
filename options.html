@@ -2,50 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>AIRadar Settings</title>
+  <title>Sift — Settings</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f13; color: #e8e8f0; display: flex; justify-content: center; padding: 48px 16px; }
-    .card { background: #1e1e2e; border: 1px solid #3a3a5c; border-radius: 16px; padding: 32px; width: 100%; max-width: 500px; }
-    h1 { font-size: 22px; font-weight: 800; margin-bottom: 24px; background: linear-gradient(90deg, #a78bfa, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .section-title { font-size: 11px; font-weight: 700; color: #6666aa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-    label { display: block; font-size: 13px; color: #9999cc; margin-bottom: 6px; }
-    input[type="text"], input[type="password"], textarea {
-      width: 100%; background: #0f0f13; border: 1px solid #3a3a5c; border-radius: 8px;
-      color: #e8e8f0; padding: 10px 12px; font-size: 13px; outline: none; margin-bottom: 16px; font-family: inherit;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #111318; color: #e2e4e9;
+      display: flex; justify-content: center; padding: 48px 16px;
     }
-    input:focus, textarea:focus { border-color: #a78bfa; }
-    textarea { height: 90px; resize: vertical; }
-    button { background: linear-gradient(135deg, #7c3aed, #ec4899); color: white; border: none; border-radius: 8px; padding: 10px 20px; font-size: 13px; font-weight: 600; cursor: pointer; }
-    button:hover { opacity: 0.9; }
-    .status { font-size: 13px; color: #4ade80; margin-top: 8px; }
-    hr { border-color: #2a2a3e; margin: 20px 0; }
-    a { color: #a78bfa; }
-    .hint { font-size: 11px; color: #6666aa; margin-top: -12px; margin-bottom: 14px; }
+    .card {
+      background: #1a1d24; border: 1px solid #22252e;
+      border-radius: 12px; padding: 28px; width: 100%; max-width: 480px;
+    }
+    h1 { font-size: 18px; font-weight: 700; margin-bottom: 6px; color: #f0f1f3; letter-spacing: -0.3px; }
+    .subtitle { font-size: 13px; color: #4b5563; margin-bottom: 28px; }
+    .section { margin-bottom: 24px; }
+    .section-title { font-size: 11px; font-weight: 600; color: #4b5563; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 10px; }
+    label { display: block; font-size: 13px; color: #9ca3af; margin-bottom: 5px; }
+    input[type="text"], input[type="password"], textarea {
+      width: 100%; background: #111318; border: 1px solid #22252e;
+      border-radius: 7px; color: #e2e4e9; padding: 9px 12px;
+      font-size: 13px; outline: none; margin-bottom: 12px; font-family: inherit;
+    }
+    input:focus, textarea:focus { border-color: #1d4ed8; }
+    textarea { height: 88px; resize: vertical; }
+    button {
+      background: #1d4ed8; color: white; border: none; border-radius: 7px;
+      padding: 9px 18px; font-size: 13px; font-weight: 500; cursor: pointer;
+      transition: background 0.15s;
+    }
+    button:hover { background: #1e40af; }
+    .status { font-size: 13px; color: #22c55e; margin-top: 8px; min-height: 20px; }
+    hr { border: none; border-top: 1px solid #22252e; margin: 20px 0; }
+    .hint { font-size: 11px; color: #4b5563; margin-top: -8px; margin-bottom: 12px; }
+    a { color: #3b82f6; text-decoration: none; }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>📡 AIRadar Settings</h1>
+    <h1>Sift</h1>
+    <p class="subtitle">Settings</p>
 
-    <div class="section-title">API Key (Optional — Deeper Analysis)</div>
-    <label>Anthropic API Key</label>
-    <input type="password" id="api-key" placeholder="sk-ant-..."/>
-    <p class="hint">When set, uses Claude to double-check uncertain content. Get one free at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></p>
-
-    <hr/>
-
-    <div class="section-title">Whitelist — Never scan these sites</div>
-    <label>Domains (one per line)</label>
-    <textarea id="whitelist" placeholder="mysite.com&#10;trusted-blog.org"></textarea>
+    <div class="section">
+      <div class="section-title">Detection API</div>
+      <label>API Key <span style="color:#4b5563">(optional — enables deeper analysis)</span></label>
+      <input type="password" id="api-key" placeholder="sk-ant-..."/>
+      <p class="hint">Used for secondary analysis on uncertain content only. Never stored externally.</p>
+    </div>
 
     <hr/>
 
-    <div class="section-title">Custom AI Phrases</div>
-    <label>Add your own AI giveaway phrases (one per line)</label>
-    <textarea id="custom-phrases" placeholder="in conclusion&#10;it's worth noting"></textarea>
+    <div class="section">
+      <div class="section-title">Whitelist</div>
+      <label>Skip these domains (one per line)</label>
+      <textarea id="whitelist" placeholder="example.com&#10;mysite.org"></textarea>
+    </div>
 
-    <button id="save-btn">Save Settings</button>
+    <hr/>
+
+    <div class="section">
+      <div class="section-title">Custom Patterns</div>
+      <label>Extra phrases to flag (one per line)</label>
+      <textarea id="custom-phrases" placeholder="in conclusion&#10;it's worth noting"></textarea>
+    </div>
+
+    <button id="save-btn">Save</button>
     <p class="status" id="status"></p>
   </div>
   <script src="options.js"></script>

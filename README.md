@@ -1,79 +1,54 @@
-# 📡 AIRadar — AI Content Detector
+# Sift
 
-> A Chrome extension that detects and labels AI-generated text and images on any webpage. Know what's real.
-
-![Version](https://img.shields.io/badge/version-1.0.0-purple)
-![Manifest](https://img.shields.io/badge/Manifest-V3-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+Chrome extension that detects AI-generated text and images on any webpage.
 
 ---
 
-## The Problem
+## What it does
 
-The internet is filling up with AI-generated articles, AI spam comments, and AI-made images — and it's getting harder to tell what's real. AIRadar puts a label on it.
+AI-written content is everywhere — blog posts, comments, product descriptions, news articles. Sift scans pages as you browse and flags content that looks machine-generated, so you know what you're actually reading.
 
-## Features
+- Flags AI-written text with a confidence score and a breakdown of why
+- Detects images sourced from AI generation platforms
+- Two modes: label content in place, or filter it out entirely
+- Sensitivity slider so you can tune how aggressive detection is
+- Works on dynamic pages (Reddit, Twitter/X, infinite scroll)
 
-- 🤖 **AI Text Detection** — scans articles, comments, and posts for AI-generated writing patterns
-- 🖼 **AI Image Detection** — flags images from known AI generation platforms (DALL-E, Midjourney, Stable Diffusion, etc.)
-- 🏷 **Label Mode** — adds a badge with confidence score and explanation
-- 🚫 **Hide Mode** — removes AI content from the page entirely
-- 🎚 **Sensitivity Slider** — tune detection from aggressive to strict
-- 🔄 **Live Rescan** — re-run detection after page updates (SPAs, infinite scroll)
-- 📊 **Stats Dashboard** — see how much AI content you encounter
+No account required. No data leaves your browser.
 
-## How Detection Works
+---
 
-### Heuristic Engine (No API Key Required)
-- Detects **30+ AI signature phrases** (e.g. "delve into", "it's worth noting", "as an AI")
-- Analyzes **sentence structure burstiness** — AI writes in uniform lengths, humans don't
-- Flags **excessive transition words** (Furthermore, Moreover, Additionally...)
-- Detects **em-dash overuse** and **lack of contractions** — common in LLM output
-- Checks image **src URLs and alt text** against known AI platform domains
+## How detection works
 
-### Claude API (Optional — Deeper Analysis)
-- When an API key is provided, sends uncertain content to Claude for a second opinion
-- Catches subtler AI writing that passes heuristic checks
+The heuristic engine scores text based on a few things:
 
-## Installation
+- **Phrase patterns** — LLMs reuse specific phrases constantly ("delve into", "it's worth noting", "in today's world", etc.). The engine checks for 30+ of these.
+- **Sentence uniformity** — human writing varies in rhythm. AI output tends to have suspiciously consistent sentence lengths.
+- **Transition word density** — AI loves starting sentences with "Furthermore," "Moreover," "Additionally,". High density is a red flag.
+- **Contraction frequency** — formal AI text often avoids contractions even in casual contexts.
 
-1. Clone this repo:
-   ```bash
-   git clone https://github.com/samueldgs1/ai-content-detector.git
-   ```
+An optional API key enables a second-pass analysis on content that scores in the uncertain range.
+
+---
+
+## Install
+
+1. Clone or download this repo
 2. Go to `chrome://extensions` in Chrome
-3. Enable **Developer Mode**
-4. Click **Load unpacked** → select the project folder
+3. Enable Developer Mode
+4. Load unpacked → select the project folder
 
-## Project Structure
+---
 
-```
-ai-content-detector/
-├── manifest.json      # Extension config (Manifest V3)
-├── heuristics.js      # AI text pattern detection engine
-├── content.js         # Page scanner — labels/hides AI content
-├── background.js      # Stats tracking, badge counter
-├── popup.html/css/js  # Dashboard UI
-├── options.html/js    # Settings page
-└── icons/             # Extension icons
-```
+## Stack
 
-## Tech Stack
+Chrome Extension Manifest V3, vanilla JS, no build step, no dependencies.
 
-- Chrome Extension **Manifest V3**
-- **MutationObserver** for dynamic content (SPAs, infinite scroll)
-- **Heuristic NLP** — no ML model needed, pure pattern analysis
-- **Claude API** (optional) for deeper classification
-- Vanilla JS — zero dependencies
+---
 
 ## Roadmap
 
-- [ ] ML-based perplexity scoring (detect AI by how "predictable" text is)
-- [ ] Right-click → "Check this text" context menu
-- [ ] Export report of AI content found on a page
-- [ ] Firefox support
-- [ ] Community-sourced phrase list updates
-
----
-
-MIT © 2026
+- Right-click → check selected text
+- Per-site detection history
+- Firefox support
+- Shareable page reports
