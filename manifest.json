@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "AIRadar - AI Content Detector",
+  "name": "Sift - AI Content Filter",
   "version": "1.0.0",
   "description": "Detects and labels AI-generated text and images on any webpage. Know what's real.",
   "permissions": [

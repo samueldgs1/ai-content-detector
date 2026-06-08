@@ -49,9 +49,10 @@ thresholdSlider.addEventListener('input', () => {
 });
 
 function updateThresholdHint(val) {
-  const labels = { 10: 'Very sensitive', 20: 'Sensitive', 40: 'Balanced', 60: 'Strict', 80: 'Very strict' };
-  const nearest = Object.keys(labels).reduce((a, b) => Math.abs(b - val) < Math.abs(a - val) ? b : a);
-  thresholdHint.textContent = `${labels[nearest]} — flags content with ${val}%+ AI score`;
+  if (val <= 20) thresholdHint.textContent = 'Aggressive';
+  else if (val <= 40) thresholdHint.textContent = 'Balanced';
+  else if (val <= 60) thresholdHint.textContent = 'Strict';
+  else thresholdHint.textContent = 'Very strict';
 }
 
 // ─── Save ─────────────────────────────────────────────────────────────────

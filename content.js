@@ -145,7 +145,7 @@
 
     const tag = document.createElement('div');
     tag.className = 'air-image-tag';
-    tag.textContent = '🤖 AI Generated Image';
+    tag.textContent = 'AI Generated';
 
     img.parentNode?.insertBefore(wrapper, img);
     wrapper.appendChild(img);
@@ -162,21 +162,21 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: 6px;
-        background: #0f0f1a;
-        border: 1px solid #3a3a5c;
-        border-left: 3px solid #7c3aed;
+        gap: 8px;
+        background: #13151a;
+        border: 1px solid #1e2128;
+        border-left: 2px solid #1d4ed8;
         border-radius: 6px;
-        padding: 6px 10px;
-        margin: 6px 0;
+        padding: 7px 12px;
+        margin: 8px 0;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         font-size: 12px;
-        color: #c0c0e0;
+        color: #9ca3af;
         z-index: 9999;
         position: relative;
       }
-      .air-emoji { font-size: 14px; }
-      .air-verdict { font-weight: 700; font-size: 12px; }
+      .air-emoji { display: none; }
+      .air-verdict { font-weight: 600; font-size: 12px; }
       .air-score { color: #6666aa; font-size: 11px; }
       .air-toggle {
         cursor: pointer;
@@ -201,16 +201,18 @@
       .air-image-wrapper { position: relative !important; display: inline-block !important; }
       .air-image-tag {
         position: absolute;
-        top: 6px; left: 6px;
-        background: rgba(124,58,237,0.9);
-        color: white;
+        top: 8px; left: 8px;
+        background: rgba(17,19,24,0.88);
+        color: #e2e4e9;
         font-size: 11px;
-        font-weight: 600;
+        font-weight: 500;
         padding: 3px 8px;
         border-radius: 4px;
+        border: 1px solid #1d4ed8;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         z-index: 9999;
         pointer-events: none;
+        letter-spacing: 0.2px;
       }
     `;
     document.head.appendChild(style);

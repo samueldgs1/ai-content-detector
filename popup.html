@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>AIRadar</title>
+  <title>Sift</title>
   <link rel="stylesheet" href="popup.css"/>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="logo">
-        <span class="logo-icon">📡</span>
-        <span class="logo-text">AIRadar</span>
+        <svg class="logo-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <rect x="1" y="4" width="16" height="2" rx="1" fill="white" opacity="0.9"/>
+          <rect x="4" y="8" width="10" height="2" rx="1" fill="white" opacity="0.7"/>
+          <rect x="7" y="12" width="4" height="2" rx="1" fill="white" opacity="0.5"/>
+        </svg>
+        <span class="logo-text">Sift</span>
       </div>
       <label class="toggle">
         <input type="checkbox" id="master-toggle" checked/>
@@ -18,60 +22,61 @@
       </label>
     </header>
 
-    <div class="stats-grid">
-      <div class="stat-card purple">
+    <div class="stats-row">
+      <div class="stat-item">
         <span class="stat-num" id="stat-flagged">0</span>
-        <span class="stat-label">AI Text Flagged</span>
+        <span class="stat-label">Flagged</span>
       </div>
-      <div class="stat-card red">
+      <div class="stat-divider"></div>
+      <div class="stat-item">
         <span class="stat-num" id="stat-images">0</span>
-        <span class="stat-label">AI Images Found</span>
+        <span class="stat-label">Images</span>
       </div>
-      <div class="stat-card blue">
+      <div class="stat-divider"></div>
+      <div class="stat-item">
         <span class="stat-num" id="stat-scanned">0</span>
-        <span class="stat-label">Blocks Scanned</span>
+        <span class="stat-label">Scanned</span>
       </div>
-      <div class="stat-card green">
+      <div class="stat-divider"></div>
+      <div class="stat-item">
         <span class="stat-num" id="stat-accuracy">—</span>
-        <span class="stat-label">Detection Rate</span>
+        <span class="stat-label">Rate</span>
       </div>
     </div>
 
-    <div class="section-title">Mode</div>
-    <div class="mode-selector">
-      <button class="mode-btn active" id="mode-label" data-mode="label">
-        <span>🏷</span>
-        <span>Label It</span>
-        <span class="mode-desc">Show badge on AI content</span>
-      </button>
-      <button class="mode-btn" id="mode-hide" data-mode="hide">
-        <span>🚫</span>
-        <span>Hide It</span>
-        <span class="mode-desc">Remove AI content entirely</span>
-      </button>
+    <div class="section">
+      <div class="section-label">Response</div>
+      <div class="mode-selector">
+        <button class="mode-btn active" id="mode-label" data-mode="label">
+          <span class="mode-title">Label</span>
+          <span class="mode-desc">Flag with a badge</span>
+        </button>
+        <button class="mode-btn" id="mode-hide" data-mode="hide">
+          <span class="mode-title">Filter</span>
+          <span class="mode-desc">Remove from view</span>
+        </button>
+      </div>
     </div>
 
-    <div class="section-title">Sensitivity</div>
-    <div class="slider-row">
-      <span class="slider-label">Low</span>
+    <div class="section">
+      <div class="section-label">Sensitivity — <span id="threshold-hint">Balanced</span></div>
       <input type="range" id="threshold" min="10" max="80" value="40" step="5"/>
-      <span class="slider-label">High</span>
     </div>
-    <div class="threshold-hint" id="threshold-hint">Flags content with 40%+ AI score</div>
 
-    <div class="section-title">Options</div>
-    <div class="option-row">
-      <span>Scan Images</span>
-      <label class="toggle sm">
-        <input type="checkbox" id="toggle-images" checked/>
-        <span class="slider"></span>
-      </label>
+    <div class="section">
+      <div class="option-row">
+        <span class="option-label">Scan images</span>
+        <label class="toggle sm">
+          <input type="checkbox" id="toggle-images" checked/>
+          <span class="slider"></span>
+        </label>
+      </div>
     </div>
 
     <div class="footer">
-      <button class="btn-text" id="rescan-btn">🔄 Rescan Page</button>
-      <button class="btn-text" id="options-btn">⚙️ Settings</button>
-      <button class="btn-text" id="reset-btn">Reset</button>
+      <button class="btn-text" id="rescan-btn">Rescan</button>
+      <button class="btn-text" id="options-btn">Settings</button>
+      <button class="btn-text muted" id="reset-btn">Reset</button>
     </div>
   </div>
   <script src="popup.js"></script>
