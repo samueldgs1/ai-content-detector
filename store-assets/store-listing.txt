@@ -1,0 +1,63 @@
+===================================================
+CHROME WEB STORE LISTING COPY — SIFT
+===================================================
+
+EXTENSION NAME (max 45 chars)
+-------------------------------
+Sift - AI Content Detector
+
+
+SHORT DESCRIPTION (max 132 chars — shown in search results)
+-------------------------------
+Detects AI-generated text and images as you browse. Know what's real before you read it.
+
+
+DETAILED DESCRIPTION (paste this into the store)
+-------------------------------
+The web is filling up with AI-generated articles, comments, product reviews, and images. Sift runs quietly in the background and flags content that looks machine-generated — so you know what you're actually reading.
+
+HOW IT WORKS
+
+Sift analyzes text for patterns that AI writing consistently produces: overused phrases, suspiciously uniform sentence lengths, heavy use of transition words, and other signals that show up in generated content but rarely in human writing. It also detects images sourced from known AI generation platforms.
+
+FEATURES
+
+• Detects AI-written text across articles, blog posts, comments, and social media
+• Flags images from AI generation platforms (DALL-E, Midjourney, Stable Diffusion, and more)
+• Label mode: adds a small badge with a confidence score and explanation
+• Filter mode: removes flagged content from the page entirely
+• Sensitivity slider: tune detection from aggressive to strict
+• Works on dynamic pages and infinite scroll feeds
+• Whitelist specific sites you always trust
+• No account required — no data ever leaves your browser
+
+PRIVACY
+
+Sift runs entirely in your browser. No browsing data is collected, stored, or transmitted. The optional API key (for deeper analysis) is saved locally in Chrome's storage and is never sent anywhere except directly to the API endpoint you configured.
+
+BUILT FOR
+
+Readers who want to know if an article was written by a person. Students and researchers verifying sources. Anyone tired of copy-paste AI slop filling their feeds.
+
+
+CATEGORY
+-------------------------------
+Productivity
+
+
+KEYWORDS / TAGS
+-------------------------------
+AI detector, AI content, AI text detection, ChatGPT detector, AI generated, fake content, content filter, AI images
+
+
+PRIMARY LANGUAGE
+-------------------------------
+English
+
+
+SCREENSHOTS NEEDED (create these manually)
+-------------------------------
+1. Popup UI on a clean page (1280x800)
+2. A webpage with the detection badge visible on an article (1280x800)
+3. The filter mode hiding content (1280x800)
+Tip: Use Chrome DevTools device toolbar set to 1280x800, then screenshot.

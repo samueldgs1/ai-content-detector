@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sift — Privacy Policy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #111318; color: #c9ccd3;
+      line-height: 1.7; padding: 48px 24px;
+      display: flex; justify-content: center;
+    }
+    .content { max-width: 600px; width: 100%; }
+    h1 { font-size: 22px; color: #f0f1f3; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.3px; }
+    .date { font-size: 12px; color: #4b5563; margin-bottom: 36px; }
+    h2 { font-size: 14px; font-weight: 600; color: #e2e4e9; margin: 28px 0 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+    p { font-size: 14px; color: #9ca3af; margin-bottom: 12px; }
+    ul { font-size: 14px; color: #9ca3af; padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
+    a { color: #3b82f6; text-decoration: none; }
+    hr { border: none; border-top: 1px solid #1e2128; margin: 28px 0; }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Privacy Policy</h1>
+    <p class="date">Last updated: June 2026</p>
+
+    <p>Sift is a Chrome extension that detects AI-generated content on webpages. This policy explains what data the extension accesses and how it is handled.</p>
+
+    <h2>Data We Collect</h2>
+    <p>Sift does not collect any personal data. The extension does not have a server, does not create accounts, and does not transmit any information about you or your browsing to any third party.</p>
+
+    <h2>What the Extension Accesses</h2>
+    <p>To function, Sift reads the text content and image URLs of pages you visit. This processing happens entirely inside your browser. The content is never stored beyond your current session, and never sent anywhere.</p>
+
+    <ul>
+      <li><strong>Page text</strong> — read locally to score for AI patterns. Never transmitted.</li>
+      <li><strong>Image URLs</strong> — checked against a local list of known AI platform domains. Never transmitted.</li>
+      <li><strong>Settings</strong> — stored locally using Chrome's built-in sync storage (your whitelist, sensitivity preference, mode). Synced by Chrome across your own devices if you have sync enabled.</li>
+    </ul>
+
+    <h2>Optional API Key</h2>
+    <p>If you choose to enter an API key in Settings, it is stored locally in Chrome's storage and sent only to the API endpoint you configured (e.g. api.anthropic.com) when deeper analysis is requested. Sift never sees or stores the results on any server.</p>
+
+    <h2>No Analytics or Tracking</h2>
+    <p>Sift contains no analytics, no crash reporting, no telemetry, and no advertising. There is no way for the developer to know how many people use the extension or what sites they visit.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes in a meaningful way, the extension version will be updated and the date above will reflect it.</p>
+
+    <hr/>
+    <p style="font-size:12px;color:#4b5563;">Questions? Open an issue on <a href="https://github.com/samueldgs1/ai-content-detector">GitHub</a>.</p>
+  </div>
+</body>
+</html>
